@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Apliksi Kalkulator</title>
+    <style type="text/css">
+        body{
+            background: url(POTO.jpg);
+            font-family: monospace;
+        }
+        .kotak{
+            width: 320px;
+            margin: 100px auto;
+        }
+        table{
+            width: 100%;
+            background-color: white;
+        }
+        td{
+            width: 25%;
+        }
+        #inputan{
+            height: 80px;
+            font-size: 50px;
+            text-align: right;
+            vertical-align: bottom;
+        }
+        button{
+            height: 50px;
+            width: 100%;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="kotak">
+	<table border="1" cellspacing="0">
+		<tr>
+			<td colspan="4" id="inputan">0</td>
+		</tr>
+		<tr>
+			<td colspan="2"><button onclick="tombol(this)">AC</button></td>
+			<td><button onclick="tombol(this)">Del</button></td>
+			<td><button onclick="tombol(this)">/</button></td>
+		</tr>
+		<tr>
+			<td><button onclick="tombol(this)">7</button></td>
+			<td><button onclick="tombol(this)">8</button></td>
+			<td><button onclick="tombol(this)">9</button></td>
+			<td><button onclick="tombol(this)">*</button></td>
+		</tr>
+		<tr>
+			<td><button onclick="tombol(this)">4</button></td>
+			<td><button onclick="tombol(this)">5</button></td>
+			<td><button onclick="tombol(this)">6</button></td>
+			<td><button onclick="tombol(this)">+</button></td>
+		</tr>
+		<tr>
+			<td><button onclick="tombol(this)">1</button></td>
+			<td><button onclick="tombol(this)">2</button></td>
+			<td><button onclick="tombol(this)">3</button></td>
+			<td><button onclick="tombol(this)">-</button></td>
+		</tr>
+		<tr>
+			<td colspan="2"><button onclick="tombol(this)">0</button></td>
+			<td><button onclick="tombol(this)">.</button></td>
+			<td><button onclick="tombol(this)">=</button></td>
+		</tr>
+	</table>
+</div>
+<script type="text/javascript">
+	var inputan = document.getElementById('inputan');
+	function tombol(obj) {
+		var kondisi = obj.innerHTML;
+		if(kondisi=="="){
+			inputan.innerHTML = eval(inputan.innerHTML);
+		}else if(kondisi=="Del"){
+			inputan.innerHTML = inputan.innerHTML.slice(0,-1)||'0';
+		}else if(kondisi=="AC"){
+			inputan.innerHTML = "0";
+		}else{
+			if(inputan.innerHTML=="0"){
+				inputan.innerHTML = kondisi;
+			}else{
+				inputan.innerHTML += kondisi;
+			}
+		}
+	}
+</script>
+</body>
+</html>
